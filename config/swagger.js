@@ -1,6 +1,8 @@
 
 import swaggerJsdoc from "swagger-jsdoc";
+import dotenv from 'dotenv';
 
+dotenv.config();
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -14,7 +16,7 @@ const options = {
 
     servers: [
       {
-        url: "http://localhost:4000",
+        url: process.env.NODE_ENV === 'development' ? "http://localhost:4000" : 'https://finance-tracker-api-oap9.onrender.com/',
         description: "Development server",
       },
     ],
